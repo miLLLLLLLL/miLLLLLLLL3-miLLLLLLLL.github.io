@@ -1,0 +1,419 @@
+/* Button */
+.button {
+  display: inline-block;
+  position: relative;
+  width: 120px;
+  height: 32px;
+  line-height: 32px;
+  border-radius: 2px;
+  font-size: 0.9em;
+  background-color: #fff;
+  color: #646464;
+}
+
+.button>paper-ripple {
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.button.green {
+  background-color: #367FBF;
+  color: #fff;
+  cursor: pointer;
+}
+
+.button.raised {
+  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 0.2s;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+
+.button.raised:active {
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+  transition-delay: 0s;
+}
+
+
+/* Misc */
+.center {
+  text-align: center;
+}
+
+.label {
+  padding: 0 16px;
+}
+
+.label-blue {
+  color: #4285f4;
+}
+
+.label-red {
+  color: #d23f31;
+}
+
+.group {
+  position: relative;
+  margin-bottom: 45px;
+}
+
+input {
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 300px;
+  border: none;
+  border-bottom: 1px solid #757575;
+}
+
+input:focus {
+  outline: none;
+}
+
+/* LABEL ======================================= */
+label {
+  color: #999;
+  font-size: 18px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+/* active state */
+input:focus~label,
+input:valid~label {
+  top: -20px;
+  font-size: 14px;
+  color: #367FBF;
+}
+
+/* BOTTOM BARS ================================= */
+.bar {
+  position: relative;
+  display: block;
+  width: 300px;
+}
+
+.bar:before,
+.bar:after {
+  content: '';
+  height: 2px;
+  width: 0;
+  bottom: 1px;
+  position: absolute;
+  background: #367FBF;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+.bar:before {
+  left: 50%;
+}
+
+.bar:after {
+  right: 50%;
+}
+
+/* active state */
+input:focus~.bar:before,
+input:focus~.bar:after {
+  width: 50%;
+}
+
+/* HIGHLIGHTER ================================== */
+.highlight {
+  position: absolute;
+  height: 60%;
+  width: 100px;
+  top: 25%;
+  left: 0;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* active state */
+input:focus~.highlight {
+  -webkit-animation: inputHighlighter 0.3s ease;
+  -moz-animation: inputHighlighter 0.3s ease;
+  animation: inputHighlighter 0.3s ease;
+}
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+  from {
+    background: #52ae87;
+  }
+
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+
+@-moz-keyframes inputHighlighter {
+  from {
+    background: #52ae87;
+  }
+
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+
+@keyframes inputHighlighter {
+  from {
+    background: #52ae87;
+  }
+
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+
+
+.line {
+  position: fixed;
+  /* 뷰포트에 대해 고정된 위치 */
+  right: 0;
+  /* 우측 */
+  bottom: 0;
+  /* 하단 */
+  margin: 10px;
+  /* 여백을 주어 완전히 모서리에 닿지 않도록 함 */
+  font-size: 13px;
+  color: #757575;
+  text-align: right;
+}
+
+
+/* 랜덤 번호 뽑기 버튼 */
+/* .countBox {
+  position: fixed;
+  top: 10%;    
+  left: 50%;    
+  transform: translate(-50%, -50%); 
+  padding: 10px 10px;
+  box-sizing: border-box;
+  background-color: #367FBF;
+  border-radius: 10px;
+  box-shadow: 1px 1px 15px #367FBF;
+  width: 20vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin: 0 auto;
+  z-index: 999;
+}
+
+  h1 {
+    color: #ffffff;
+    font-size: 20px;
+  }
+  button {
+    border: 0;
+    background-color: transparent;
+  }
+  .countNumber {
+    font-size: 50px;
+    font-weight: bold;
+    color: white;
+    margin: 10px 0;
+  }
+  .countButtonWrap > button {
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: #05C7F2;
+    padding: 5px 10px;
+  }
+  .countButtonWrap > button:hover {
+    color: #367FBF;
+    background-color: white;
+    transition: all ease 0.3s
+  } */
+
+
+
+/* 모달창 */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.modal.show {
+  display: block;
+  /* 보이기 상태 */
+  opacity: 1;
+  /* 완전 불투명 */
+}
+
+
+.modal-content {
+  margin: 15% auto;
+  /* padding: 20px; */
+  width: 360px; /* 원의 크기 조절 */
+  height: 438px; /* 원의 크기 조절 */
+  /* border-radius: 0%; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  background-image: url('ball6.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.5)); /* 그림자 추가 */
+}
+
+.close {
+  color: #aaa;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+}
+
+.modal-text {
+  margin: 0;
+}
+
+
+/* 공통 버튼 스타일 */
+.mix, .mix_ladder {
+  position: fixed;
+  bottom: 20px; /* 페이지 하단에서 20픽셀 위쪽 */
+  left: 20px; /* 페이지 왼쪽에서 20픽셀 오른쪽 */
+  font-size: 16px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  padding: 20px;
+  z-index: 999;
+}
+
+/* 인원 섞기 버튼 스타일 */
+.mix {
+  background-color: #dc1414; /* 배경색 변경 */
+  box-shadow: 0 5px #A10F2B; /* 그림자 색상 변경 */
+  left: 20px;
+}
+
+.mix:hover {
+  background-color: #A10F2B; /* 호버 시 배경색 변경 */
+}
+
+/* 사다리 섞기 버튼 스타일 */
+.mix_ladder {
+  background-color: #3CB371; /* 배경색 변경 */
+  box-shadow: 0 5px #2A8B56; /* 그림자 색상 변경 */
+  left: 130px;
+}
+
+.mix_ladder:hover {
+  background-color: #2A8B56; /* 호버 시 배경색 변경 */
+}
+
+/* 버튼 클릭 시 눌림 효과 */
+.mix:active, .mix_ladder:active {
+  transform: translateY(4px); /* 버튼을 아래로 이동 */
+  box-shadow: 0 1px; /* 그림자 크기 축소 */
+}
+
+
+/* 번호섞기 */
+/* .mix_num{
+  position: fixed;
+  top: 100px;
+  left: 130px;
+} */
+
+
+/* 랜딩페이지 트리이미지 */
+.tree{
+  position: absolute;
+  bottom: 20px;
+  width: 500px;
+}
+
+/* 홈초이스 로고 */
+.logo {
+  position: fixed;
+  top: 10px; /* 화면 하단에 고정 */
+  right: 20px; /* 화면 오른쪽에 고정 */
+  width: 200px;
+  opacity: 0.7;
+}
+
+/* 상단 트리 이미지*/
+.ect{
+  position: fixed; /* 고정 위치 */
+  top: 10%; /* 상단에서 50% 떨어진 위치 */
+  left: 50%; /* 왼쪽에서 50% 떨어진 위치 */
+  transform: translate(-50%, -50%); /* 이미지의 중심을 정확히 화면 중앙에 맞춤 */
+  z-index: 999;
+  width: 500px;
+}
+
+
+/* 확대,축소,기본설정 버튼 */
+.zoom-controls {
+  position: fixed;
+  top: 20px; /* 페이지 하단에서 20픽셀 위쪽 */
+  left: 20px;
+  z-index: 1000;
+  transform: scale(1); /* 기본 스케일 */
+}
+
+#zoomIn, #zoomReset, #homebtn{
+  padding: 15px;
+  border-radius: 5px;
+  border: none; 
+  cursor: pointer;
+  font-size: 14px;
+  color: white;
+  transition: background-color 0.3s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+/* 버튼 클릭 시 눌림 효과 */
+#zoomIn:active, #zoomReset:active, #homebtn:active {
+  transform: translateY(4px); /* 버튼을 아래로 이동 */
+  box-shadow: 0 1px; /* 그림자 크기 축소 */
+}
+
+#zoomIn, #zoomReset, #homebtn {
+  background-color: #ebc05b; /* 배경색 변경 */
+  box-shadow: 0 5px #d6ab1f; /* 그림자 색상 변경 */
+}
+
+
+/* 하단에 쌓이는 결과창 */
+#results {
+  font-family: 'Noto Sans KR', sans-serif;
+  color: #333;
+  font-size: 14px;
+}

@@ -1,0 +1,16 @@
+{
+  "name": "2368d64c54d1bedb20",
+  "version": "1.0.0",
+  "description": "",
+  "main": "jquery-2.1.3.min.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
